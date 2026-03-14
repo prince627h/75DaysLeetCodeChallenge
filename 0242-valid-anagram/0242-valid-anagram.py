@@ -1,12 +1,23 @@
 class Solution(object):
     def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        
+        # if len(s) != len(t):
+        #     return False
+        # elif not t.isalnum():
+        #     return False
+        # elif sorted(t) == sorted(s):
+        #     return True
+        # else:
+        #     return False
+
         if len(s) != len(t):
             return False
-        
-        count = [0] * 26
-        
-        for i in range(len(s)):
-            count[ord(s[i]) - ord('a')] += 1
-            count[ord(t[i]) - ord('a')] -= 1
-        
-        return all(c == 0 for c in count)
+        for idx in set(s):
+            if s.count(idx) != t.count(idx):
+                return False
+        return True
