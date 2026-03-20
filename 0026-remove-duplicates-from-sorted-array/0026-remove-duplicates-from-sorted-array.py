@@ -11,4 +11,3 @@ class Solution(object):
                 nums[i] = nums[j]
         
         return i + 1
-        
